@@ -28,7 +28,7 @@ public class DepartmentServiceTest {
 
     List<Employee> employees = Arrays.asList(
             new Employee("oleg", "olegov", 1, 300.0),
-            new Employee("petr", "petrov", 2, 100.0),
+            new Employee("petr", "petrov", 2, 300.0),
             new Employee("ivan", "ivanov", 1, 200.0),
             new Employee("sasha", "sashov", 2, 100.0),
             new Employee("gosha", "goshov", 1, 100.0)
@@ -52,17 +52,31 @@ public class DepartmentServiceTest {
         assertEquals(600.0, salaryActual, 0.000001);
     }
 
-//    @Test
-//    void min() {
+    @Test
+    void min() {
 //        double salaryActual = departmentService.getEmployeeWithMinSalary(1);
 //        assertEquals(100.0, salaryActual, 0.000001);
-//    }
-//
-//    @Test
-//    void max() {
+        int department = 2;
+        Employee empl1 = new Employee("petr", "petrov", 2, 300.0);
+        Employee empl2 = new Employee("sasha", "sashov", 2, 100.0);
+        employeeService.add(empl1);
+        employeeService.add(empl2);
+        Employee result = departmentService.getEmployeeWithMinSalary(department);
+        assertEquals(empl2, result);
+    }
+
+    @Test
+    void max() {
 //        double salaryActual = departmentService.getEmployeeWithMaxSalary(1);
 //        assertEquals(300.0, salaryActual, 0.000001);
-//    }
+        int department = 2;
+        Employee empl1 = new Employee("petr", "petrov", 2, 300.0);
+        Employee empl2 = new Employee("sasha", "sashov", 2, 100.0);
+        employeeService.add(empl1);
+        employeeService.add(empl2);
+        Employee result = departmentService.getEmployeeWithMaxSalary(department);
+        assertEquals(empl1, result);
+    }
 
     @Test
     void getAllFromDepartment() {

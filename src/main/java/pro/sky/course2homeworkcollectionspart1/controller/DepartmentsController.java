@@ -39,5 +39,4 @@ public class DepartmentsController {
     public Map<Integer, List<Employee>> getAll() {
         return departmentService.getEmployeesGroupedByDepartment();
     }
-
 }
