@@ -68,12 +68,12 @@ public class EmployeeServiceTest {
         assertEquals(emplExpected, emplActual);
     }
 
-//    @Test
-//    void notFoundEmployee() {
-//        Employee emplExpected = new Employee("petr", "petrov", 1, 15000.0);
-//        employeeService.add(emplExpected);
-//        assertThrows(EmployeeNotFoundException.class, () -> employeeService.find("oleg", "olegov"));
-//    }
+    @Test
+    void notFoundEmployee() {
+        Employee emplExpected = new Employee("petr", "petrov", 1, 15000.0);
+        employeeService.add(emplExpected);
+        assertThrows(EmployeeNotFoundException.class, () -> employeeService.find("oleg", "olegov"));
+    }
 
     @Test
     void remove() {

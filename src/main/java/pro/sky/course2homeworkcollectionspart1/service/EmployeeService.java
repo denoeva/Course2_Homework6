@@ -36,9 +36,6 @@ public class EmployeeService {
 
     public Employee find(String firstName, String lastName) {
         Employee employee = employees.get(createEmployeeKey(firstName, lastName));
-        if (!checkInput(employee.getFirstName(), employee.getLastName())) {
-            throw new InvalidInputException();
-        }
         if (employee == null) {
             throw new EmployeeNotFoundException();
         }
